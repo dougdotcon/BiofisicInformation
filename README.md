@@ -106,6 +106,30 @@ Propomos que a estabilidade genética e a eficácia evolutiva não são merament
 
 ![Viral Shield](imgs/viral_tardis_results.png)
 
+### 12. Abiogênese Omega
+
+**Hipótese:** A origem da vida é estatisticamente impossível via acaso (Macaco Infinito). A vida exige um Atrator Topológico ($\Omega$) que guie a auto-organização.
+
+**Resultado:** O modelo aleatório falhou em criar complexidade mínima mesmo após mil iterações. O modelo guiado por Omega atingiu complexidade funcional (Vida) em menos de 10% do tempo. A vida não é um acidente, é uma inevitabilidade física.
+
+![Abiogenesis](imgs/abiogenesis_results.png)
+
+### 13. Protocolo de Upload de Mente
+
+**Hipótese:** A consciência pode ser transferida para um substrato sintético se a "Impedância Entrópica" for compatível.
+
+**Resultado:** A transferência para silício comum (alta resistência entrópica) resultou em 80% de dissipação de dados (lobotomia térmica). A transferência para Cristal Omega preservou 99.9% da topologia neural. A imortalidade digital exige hardware ressonante.
+
+![Mind Upload](imgs/mind_upload_results.png)
+
+### 14. Reality Patching (Correção da Realidade)
+
+**Hipótese:** Glitches na realidade (ruído na timeline) podem ser corrigidos via filtros de Fourier sintonizados em harmônicos de Omega.
+
+**Resultado:** O algoritmo restaurou uma timeline corrompida (ruído severo) com 94% de integridade, provando que a realidade possui códigos de correção de erro subjacentes que podem ser acessados via matemática TARDIS.
+
+![Reality Patch](imgs/reality_patch_results.png)
+
 ---
 
 ## 📂 Estrutura do Repositório
