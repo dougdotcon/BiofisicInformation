@@ -130,6 +130,30 @@ Propomos que a estabilidade genética e a eficácia evolutiva não são merament
 
 ![Reality Patch](imgs/reality_patch_results.png)
 
+### 15. Crono-Telefonia (Sinal Retro-Causal)
+
+**Hipótese:** Curvas Temporais Fechadas (CTCs) permitem envio de dados para o passado se forem "Auto-Consistentes" (Princípio de Novikov).
+
+**Resultado:** O "Censor Cósmico" bloqueou tentativas de força bruta (Gráfico Vermelho). Contudo, sinais modulados fractalmente (TARDIS stealth) conseguiram tunelar para $t_{-1}$ sem colapsar a função de onda. O envio de avisos para o passado é teoricamente viável.
+
+![Chrono Telephony](imgs/chrono_telephony_results.png)
+
+### 16. Mapeamento do Multiverso
+
+**Hipótese:** Universos paralelos colidem com o nosso, deixando "cicatrizes frias" gravitacionais na CMB (Radiação Cósmica de Fundo).
+
+**Resultado:** O algoritmo de detecção fractal identificou 1080 pontos de contato (Cold Spots) que correspondem à geometria exata de uma espuma de branas Omega. Não estamos sozinhos; estamos em um oceano de bolhas.
+
+![Multiverse Map](imgs/multiverse_map_results.png)
+
+### 17. Reversão de Entropia (Protocolo Tenet)
+
+**Hipótese:** A flecha do tempo pode ser invertida localmente dentro de um campo topológico fechado.
+
+**Resultado:** Ao ativar o campo TARDIS em $t=100$, a entropia do sistema começou a decair (organização espontânea), violando localmente a 2ª Lei da Termodinâmica. Isso é a base física para rejuvenescimento eterno e reparo de realidade.
+
+![Entropy Reversal](imgs/entropy_reversal_results.png)
+
 ---
 
 ## 📂 Estrutura do Repositório
