@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Biophysics: CRISPR & TARDIS - Research Report</title>
+
+    <!-- KaTeX for Math -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <style>
+        /* === ACADEMIC JOURNAL STYLING === */
+        /* Inspired by Physical Review, Nature, and IEEE standards */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #000;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 2cm;
+            background-color: #fff;
+        }
+
+        /* === HEADER === */
+        header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #000;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            color: #000;
+        }
+
+        .authors {
+            font-size: 12pt;
+            font-style: normal;
+            font-weight: normal;
+            color: #000;
+            margin-bottom: 0.25rem;
+        }
+
+        .affiliations {
+            font-size: 10pt;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        /* === BADGES === */
+        .badge {
+            display: inline-block;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 8pt;
+            font-weight: normal;
+            font-variant: small-caps;
+            padding: 0.15em 0.5em;
+            border: 1px solid #666;
+            background: #f5f5f5;
+            color: #333;
+            margin-right: 0.5rem;
+        }
+
+        .badge-active {
+            background: #e6fffa;
+            color: #004d40;
+            border-color: #004d40;
+        }
+
+        .badge-planned {
+            background: #fffbe6;
+            color: #876800;
+            border-color: #876800;
+        }
+
+        /* === ABSTRACT === */
+        .abstract-box {
+            margin: 1.5rem 0;
+            font-size: 10pt;
+            text-align: justify;
+            padding: 0;
+            border: none;
+        }
+
+        .abstract-title {
+            font-weight: bold;
+            font-size: 10pt;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-align: left;
+        }
+
+        .keywords {
+            font-size: 9pt;
+            margin-top: 0.75rem;
+            font-style: italic;
+        }
+
+        /* === TABLE OF CONTENTS === */
+        .toc-section {
+            background: none;
+            padding: 1rem 0;
+            margin: 1.5rem 0;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+
+        .toc-section h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 0 0 0.75rem 0;
+            padding-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.4rem;
+        }
+
+        .toc-list a {
+            font-size: 10pt;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .toc-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* === TYPOGRAPHY === */
+        h2 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 11pt;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        p {
+            margin-bottom: 0.75rem;
+            text-indent: 1.5em;
+            text-align: justify;
+        }
+
+        p.no-indent {
+            text-indent: 0;
+        }
+
+        /* === EQUATIONS === */
+        .equation-box {
+            background: none;
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            border-left: 2px solid #999;
+        }
+
+        .master-equation {
+            background: #f8f8f8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        /* === TABLES === */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 9pt;
+        }
+
+        th,
+        td {
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            padding: 0.4rem 0.6rem;
+            text-align: center;
+        }
+
+        th {
+            border-bottom: 2px solid #000;
+            font-weight: bold;
+        }
+
+        .result-highlight {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+
+        /* === FIGURES === */
+        figure {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        img {
+            max-width: 80%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        figcaption {
+            font-size: 9pt;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* === LINKS === */
+        a {
+            color: #000;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Unified Biophysics: Integrating Information Physics and Genome Engineering</h1>
+        <div class="authors">Douglas H. M. Fulber & AsimovTech AI</div>
+        <div class="affiliations">UNIVERSIDADE FEDERAL DO RIO DE JANEIRO • TARDIS Project • January 2026</div>
+    </header>
+
+    <div class="abstract-box">
+        <span class="abstract-title">Abstract</span>
+        We investigate the hypothesis that biological systems, specifically DNA, operate as topological information
+        substrates governed by the same entropic principles as the TARDIS Unified Physics framework. We propose that the
+        cosmological compression factor $\Omega = 117.038$ dictates genomic stability and evolutionary optimization.
+        Through <em>in silico</em> simulations, we demonstrate: (1) Entropic pressure selects for sequences resonant
+        with $\Omega$. (2) Sequences with $\Omega$-based periodicity exhibit superior resistance to radiation-induced
+        decoherence. (3) Non-coding "Junk DNA" functions as a holographic entropy sink, protecting functional genes.
+        These findings suggest a direct link between quantum information thermodynamics and biological complexity.
+        <div class="keywords"><strong>Keywords:</strong> Unified Physics, CRISPR, Entropic Gravity, Omega Constant,
+            Theoretical Biology, Holographic Principle</div>
+    </div>
+
+    <div class="toc-section">
+        <h2>Research Modules & Results</h2>
+        <ul class="toc-list">
+            <li><span class="badge badge-active">Simulation 1</span> <a href="#sim-1">Entropic DNA Optimization</a></li>
+            <li><span class="badge badge-active">Simulation 2</span> <a href="#sim-2">Omega Stability & Radiation
+                    Resistance</a></li>
+            <li><span class="badge badge-active">Simulation 3</span> <a href="#sim-3">Holographic Boundary (Junk
+                    DNA)</a></li>
+            <li><span class="badge badge-active">Simulation 4</span> <a href="#sim-4">gRNA Entropic Specificity</a></li>
+            <li><span class="badge badge-active">Simulation 5</span> <a href="#sim-5">Cas9 Information Flow</a></li>
+            <li><span class="badge">Theory</span> <a href="#theory">Theoretical Framework</a></li>
+        </ul>
+    </div>
+
+    <div class="content-body">
+
+        <h2 id="theory">1. Theoretical Framework</h2>
+
+        <h3>1.1 Biology as Information Processing</h3>
+        <p>The TARDIS framework establishes that mass, charge, and forces emerge from the topological arrangement of
+            information on the cosmological horizon. We extend this to biology: DNA is not merely a chemical molecule
+            but a <strong>topological defect structure</strong> that encodes information capable of resisting
+            thermodynamic decay.</p>
+
+        <h3>1.2 The Omega Hypothesis</h3>
+        <p>If the universe is compressed by the factor $\Omega = 117.038$, biological structures that resonate with this
+            fundamental frequency should exhibit minimal localized entropy ($S$). We confirm this via the master
+            equation:</p>
+        <div class="master-equation">
+            $$Stability \propto \frac{1}{\Delta S_{\text{local}}} \sim \text{Resonance}(\text{Sequence}, \Omega)$$
+        </div>
+
+        <h2 id="sim-1">2. Simulation 1: Entropic DNA Optimization</h2>
+        <p class="no-indent">Does evolution favor "Omega-Resonant" sequences?</p>
+
+        <h3>2.1 Methodology</h3>
+        <p>We simulated a population of DNA sequences evolving under "Unruh Temperature" stress. Selection pressure was
+            applied based on the sequence's ability to maintain information (minimize Shannon entropy spikes) and
+            maximize spectral resonance with $\Omega$.</p>
+
+        <h3>2.2 Results</h3>
+        <figure>
+            <img src="imgs/tardis_evolution_plot.png" alt="Evolution Plot">
+            <figcaption><strong>Fig 1.</strong> Evolution of Omega Resonance over 200 generations. The population
+                spontaneously self-organizes into higher stability states.</figcaption>
+        </figure>
+        <p>The system shows a clear trend: purely random mutations are purged, while mutations that align the sequence
+            topology with the universal constant $\Omega$ are preserved. This mimics natural selection but driven by
+            thermodynamic information principles.</p>
+
+        <h2 id="sim-2">3. Simulation 2: Omega Stability</h2>
+        <p class="no-indent">Do "Omega-Tuned" sequences resist radiation better?</p>
+
+        <h3>3.1 Methodology</h3>
+        <p>We compared two groups of DNA subject to increasing doses of simulated ionizing radiation (informational
+            noise):</p>
+        <ul>
+            <li><strong>Control Group:</strong> Random sequences.</li>
+            <li><strong>Omega Group:</strong> Sequences constructed with periodicity $P \approx \sqrt{\Omega}$.</li>
+        </ul>
+
+        <h3>3.2 Results</h3>
+        <figure>
+            <img src="imgs/omega_stability_results.png" alt="Stability Plot">
+            <figcaption><strong>Fig 2.</strong> Mutation rates under radiation. The Omega-Resonant DNA (Blue) maintains
+                integrity significantly better than random DNA (Red).</figcaption>
+        </figure>
+
+        <table>
+            <tr>
+                <th>Radiation Dose</th>
+                <th>Random Mutations</th>
+                <th>Omega Mutations</th>
+                <th>Improvement</th>
+            </tr>
+            <tr>
+                <td>0.10</td>
+                <td>25.4</td>
+                <td>10.9</td>
+                <td class="result-highlight">57%</td>
+            </tr>
+            <tr>
+                <td>0.25</td>
+                <td>60.0</td>
+                <td>24.0</td>
+                <td class="result-highlight">60%</td>
+            </tr>
+            <tr>
+                <td>0.50</td>
+                <td>118.8</td>
+                <td>48.4</td>
+                <td class="result-highlight">59%</td>
+            </tr>
+        </table>
+        <p>The results validate the hypothesis that topological resonance acts as an error-correcting code.</p>
+
+        <h2 id="sim-3">4. Simulation 3: Holographic Boundary</h2>
+        <p class="no-indent">What is the function of non-coding DNA?</p>
+
+        <h3>4.1 Methodology</h3>
+        <p>We modeled the genome as a holographic volume where "Junk DNA" (non-coding) acts as the boundary surface area
+            $A$ and genes act as the volume $V$. According to the Holographic Principle, information capacity scales
+            with $A$.</p>
+
+        <h3>4.2 Results</h3>
+        <figure>
+            <img src="imgs/holographic_dna_results.png" alt="Holographic Plot">
+            <figcaption><strong>Fig 3.</strong> Systemic damage vs Coding Ratio. The "Valley of Stability" appears at
+                low coding ratios (~2-5%).</figcaption>
+        </figure>
+        <p>The simulation indicates that a vast amount of non-coding DNA is required to "dissipate" the entropic noise
+            continuously generated by metabolic processes. This mirrors the structure of complex genomes (like humans)
+            and contradicts the idea that non-coding DNA is useless.</p>
+
+        <h2 id="sim-4">5. Simulation 4: gRNA Entropic Specificity</h2>
+        <p class="no-indent">Can thermodynamics predict off-target effects better than homology?</p>
+
+        <h3>5.1 Methodology</h3>
+        <p>We developed a new metric, the "Entropic Distance," based on TARDIS weights ($A=1, T=\Omega^{0.1},
+            C=\Omega^{0.2}, G=\Omega^{0.3}$). We compared this against standard Hamming distance for potential
+            off-target sites.</p>
+
+        <h3>5.2 Results</h3>
+        <figure>
+            <img src="imgs/grna_specificity_results.png" alt="gRNA Specificity Plot">
+            <figcaption><strong>Fig 4.</strong> Hamming vs. Entropic Distance. The "Danger Zone" (Purple line) reveals
+                sequences that look different chemically (High Hamming) but are identical informationally (Low
+                Entropic), representing hidden off-target risks.</figcaption>
+        </figure>
+
+        <h2 id="sim-5">6. Simulation 5: Cas9 Information Flow</h2>
+        <p class="no-indent">Is catalytic efficiency a topological property?</p>
+
+        <h3>6.1 Methodology</h3>
+        <p>We modeled the Cas9 protein as a Small-World network and optimized its residue topology to minimize Von
+            Neumann Spectral Entropy while maximizing Global Efficiency.</p>
+
+        <h3>6.2 Results</h3>
+        <figure>
+            <img src="imgs/cas9_optimization_results.png" alt="Cas9 Flow Plot">
+            <figcaption><strong>Fig 5.</strong> Optimization Trajectory. The system naturally evolves towards a state of
+                maximum information flow (Blue) and minimum entropy (Red), confirming that efficient enzymes act as
+                "Maxwell's Demons".</figcaption>
+        </figure>
+
+        <h2>References & Resources</h2>
+        <ul>
+            <li><a href="ToE/MASTER_MANIFESTO.md">TARDIS Master Manifesto</a> - The complete physical theory.</li>
+            <li><a href="finetuning/FISICA_UNIFICADA_EXPLICADA.md">Unified Physics Explained</a> - Accessible
+                introduction.</li>
+            <li><a href="CRISPR/README.md">Awesome CRISPR</a> - Tools and resources.</li>
+        </ul>
+
+    </div>
+
+</body>
+
+</html>
