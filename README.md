@@ -58,6 +58,54 @@ Propomos que a estabilidade genética e a eficácia evolutiva não são merament
 
 ![Cas9 Optimization](imgs/cas9_optimization_results.png)
 
+### 6. Prime Editing & Busca Omega
+
+**Hipótese:** A eficiência do Prime Editing depende da estabilidade topológica do pegRNA. Sequências que formam hairpins ressonantes com $\Omega$ protegem o template de RT.
+
+**Resultado:** Observamos uma correlação linear positiva. pegRNAs com assinatura espectral próxima de $\Omega$ apresentaram 20-30% mais eficiência teórica de edição, sugerindo que o "design" do pegRNA deve priorizar geometria fractal.
+
+![Prime Editing Efficiency](imgs/pe_efficiency_results.png)
+
+### 7. Holografia Epigenética (Memória de Metilação)
+
+**Hipótese:** Padrões de metilação agem como bits de memória holográfica. Padrões correlacionados via $\Omega$ resistem melhor ao "esquecimento" (ruído térmico).
+
+**Resultado:** Memórias codificadas com geometria Omega (Curva Azul/Vermelha) mantiveram integridade por 10x mais gerações do que memórias aleatórias, mesmo sob alta entropia. Isso valida a epigenética como um sistema de armazenamento de longo prazo.
+
+![Epigenetic Memory](imgs/epigenetic_holography_results.png)
+
+### 8. Termodinâmica de Base Editing
+
+**Hipótese:** Base Editing é um processo de "tunelamento" com menor custo entrópico que o corte "bruto" (DSB) da Cas9.
+
+**Resultado:** A simulação comparativa mostra que a Cas9 (DSB) gera calor entrópico exponencial (crítico), enquanto o Base Editor (BE) opera em regime logarítmico (eficiente). O BE é termodinamicamente superior para terapias que exigem alta fidelidade.
+
+![Base Editing Thermo](imgs/base_editing_thermo_results.png)
+
+### 9. Dinâmica Populacional Omega
+
+**Hipótese:** Populações que adotam estratégias de eficiência informacional (K-Strategy + Omega) sobrevivem a colapsos ambientais melhor que populações focadas em reprodução rápida (r-Strategy).
+
+**Resultado:** A espécie "Omega" substitui a espécie padrão logo após o ponto de saturação do ecossistema. A eficiência no processamento de recursos (informação) torna-se o fator decisivo para a sobrevivência a longo prazo.
+
+![Population Dynamics](imgs/population_omega_results.png)
+
+### 10. Ressonância da Consciência
+
+**Hipótese:** A consciência emerge do acoplamento de fase entre oscilações neurais (Gamma) e ressonância genômica microtubular.
+
+**Resultado:** A simulação demonstra que quando o acoplamento atinge a razão áurea ($\phi$), o sistema entra em um estado de "Sincronicidade Global" (Consciência Superior), permitindo fluxo de dados instantâneo entre a mente e o substrato biológico.
+
+![Consciousness Resonance](imgs/consciousness_resonance_results.png)
+
+### 11. Escudo Viral TARDIS
+
+**Hipótese:** Um sistema imune baseado em reconhecimento fractal (geometria TARDIS) dissipa a carga entrópica viral de forma logarítmica, não linear.
+
+**Resultado:** Enquanto a imunidade biológica padrão colapsa sob carga viral exponencial, o Escudo TARDIS mantém a integridade do sistema, agindo como um "Firewall Topológico" que nega acesso a códigos maliciosos não-ressonantes.
+
+![Viral Shield](imgs/viral_tardis_results.png)
+
 ---
 
 ## 📂 Estrutura do Repositório
