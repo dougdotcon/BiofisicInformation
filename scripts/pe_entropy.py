@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 # Hipótese: Prime Editing (PE) depende da estabilidade do híbrido DNA-RNA na etapa de transcrição reversa.
 # A eficiência da escrita (PEG efficiency) é proporcional à estabilidade termodinâmica da estrutura 
@@ -61,7 +61,7 @@ def simulate_pe_efficiency(num_samples=200):
     # Linha de tendência
     z = np.polyfit(resonances, efficiencies, 1)
     p = np.poly1d(z)
-    plt.plot(resonances, p(resonances), "r--", alpha=0.5, label='Tendência TARDIS')
+    plt.plot(resonances, p(resonances), "r--", alpha=0.5, label='Tendência TAMESIS')
     
     plt.title('Prime Editing Efficiency vs Omega Resonance')
     plt.xlabel('Omega Resonance (Topological Stability)')
@@ -69,8 +69,8 @@ def simulate_pe_efficiency(num_samples=200):
     plt.legend()
     plt.grid(True, alpha=0.3)
     
-    outfile = "imgs/pe_efficiency_results.png"
-    plt.savefig(outfile)
+    outfile = "../imgs/pe_efficiency_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches="tight")
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

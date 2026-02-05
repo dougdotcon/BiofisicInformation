@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 # Hipótese: Populações com genoma "Omega-Ressonante" possuem Vantagem Fitness Topológica (TFA).
 # TFA = 1.618 (Golden Ratio) * log(Omega).
@@ -71,8 +71,8 @@ def simulate_population_dynamics(generations=200):
         plt.annotate('Singularidade Omega', xy=(idx, history_omega[idx]), xytext=(idx+20, history_omega[idx]+100),
                      arrowprops=dict(facecolor='black', shrink=0.05))
     
-    outfile = "imgs/population_omega_results.png"
-    plt.savefig(outfile)
+    outfile = "../imgs/population_omega_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches="tight")
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

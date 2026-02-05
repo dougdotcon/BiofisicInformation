@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 
 def generate_dna_sequence(length=1000, mode='random'):
@@ -30,7 +30,7 @@ def simulate_radiation_damage(sequence, radiation_dose=0.1):
     """
     Simula dano por radiação (decoerência).
     Sequências ressonantes devem se 'curar' ou resistir melhor (hipótese).
-    Na física TARDIS, a estrutura topológica impõe correção de erro.
+    Na física TAMESIS, a estrutura topológica impõe correção de erro.
     """
     seq_list = list(sequence)
     mutations = 0
@@ -45,7 +45,7 @@ def simulate_radiation_damage(sequence, radiation_dose=0.1):
             is_protected = False
             
             # Checagem simplificada de "proteção topológica" (vizinhança consistente)
-            # Em TARDIS real, isso seria um cálculo de invariante de nó (knot theory)
+            # Em TAMESIS real, isso seria um cálculo de invariante de nó (knot theory)
             period = int(np.sqrt(OMEGA))
             if i > period and i < len(seq_list) - period:
                 neighbor_consistency = (seq_list[i-period] == original) + (seq_list[i+period] == original)
@@ -91,20 +91,49 @@ def run_experiment():
         avg_mutations_omega.append(np.mean(muts_omg))
         print(f"Dose {dose:.2f}: Random={np.mean(muts_rnd):.1f} vs Omega={np.mean(muts_omg):.1f} mutações")
 
-    # Plot
-    plt.figure(figsize=(10, 6))
-    plt.plot(doses, avg_mutations_random, 'r-o', label='DNA Aleatório (Controle)')
-    plt.plot(doses, avg_mutations_omega, 'b-o', label='DNA Omega Ressonante')
-    plt.title('Experimento: Resistência à Radiação (Decoerência)')
-    plt.xlabel('Dose de Radiação (Entropia Externa)')
-    plt.ylabel('Taxa de Mutação Média')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
+    # Plot - Estilo Publicação Científica
+    plt.figure(figsize=(10, 6), dpi=300)
+    plt.rcParams['font.family'] = 'serif'
+    plt.rcParams['font.size'] = 11
+    plt.rcParams['axes.linewidth'] = 1.2
     
-    plt.fill_between(doses, avg_mutations_random, avg_mutations_omega, color='purple', alpha=0.1, label='Proteção Topológica TARDIS')
+    # Plotar com marcadores e linhas profissionais
+    plt.plot(doses, avg_mutations_random, 'o-', color='#d62728', linewidth=2.5, 
+            markersize=8, markerfacecolor='white', markeredgewidth=2,
+            label='Random DNA (Control)', zorder=3)
+    plt.plot(doses, avg_mutations_omega, 's-', color='#1f77b4', linewidth=2.5, 
+            markersize=8, markerfacecolor='white', markeredgewidth=2,
+            label='Ω-Resonant DNA', zorder=3)
     
-    outfile = "imgs/omega_stability_results.png"
-    plt.savefig(outfile)
+    # Área de proteção
+    plt.fill_between(doses, avg_mutations_random, avg_mutations_omega, 
+                    color='#9467bd', alpha=0.2, label='Topological Protection')
+    
+    plt.title('Radiation Resistance: Topological Protection Effect', 
+             fontsize=13, fontweight='bold', pad=15)
+    plt.xlabel('Radiation Dose (mutation probability)', fontsize=12)
+    plt.ylabel('Average Mutations per 500 bp', fontsize=12)
+    plt.legend(frameon=True, shadow=True, fontsize=11, loc='upper left')
+    plt.grid(True, alpha=0.3, linestyle='--', linewidth=0.5)
+    
+    # Calcular e anotar melhoria percentual
+    idx_high = len(doses) * 3 // 4
+    improvement = ((avg_mutations_random[idx_high] - avg_mutations_omega[idx_high]) / 
+                   avg_mutations_random[idx_high]) * 100
+    plt.annotate(f'Protection: ~{improvement:.0f}%\\nat high doses',
+                xy=(doses[idx_high], avg_mutations_random[idx_high]),
+                xytext=(doses[idx_high]*0.7, avg_mutations_random[idx_high]*0.6),
+                bbox=dict(boxstyle='round,pad=0.7', facecolor='wheat', alpha=0.8),
+                arrowprops=dict(arrowstyle='->', lw=1.5, color='black'),
+                fontsize=10)
+    
+    ax = plt.gca()
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    
+    plt.tight_layout()
+    outfile = "../imgs/omega_stability_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches='tight')
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

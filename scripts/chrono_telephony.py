@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 # Hipótese: Closed Timelike Curves (CTCs) permitem o envio de informação para o passado
 # sem quebrar a causalidade, SE a informação for "Self-Consistent" (Princípio de Novikov).
@@ -56,7 +56,7 @@ def simulate_chrono_telephony(attempts=200):
     # Plot
     plt.figure(figsize=(10, 6))
     plt.plot(signal_strength, received_signal_standard, 'r--', label='Transmissor Padrão (Paradox Blocked)')
-    plt.plot(signal_strength, omega_smooth, 'b-', linewidth=3, label='Transmissor TARDIS (Novikov Allowed)')
+    plt.plot(signal_strength, omega_smooth, 'b-', linewidth=3, label='Transmissor TAMESIS (Novikov Allowed)')
     
     plt.axvline(x=5, color='gray', linestyle=':', label='Barreira de Censura Cósmica')
     
@@ -70,8 +70,8 @@ def simulate_chrono_telephony(attempts=200):
     plt.annotate('Sinal Retro-Causal Confirmado', xy=(8, 0.8), xytext=(5, 0.5),
                  arrowprops=dict(facecolor='blue', shrink=0.05))
 
-    outfile = "imgs/chrono_telephony_results.png"
-    plt.savefig(outfile)
+    outfile = "../imgs/chrono_telephony_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches="tight")
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

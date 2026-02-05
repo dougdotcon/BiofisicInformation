@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 K_BOLTZMANN = 1.38e-23
 # Hipótese: Epigenética (metilação) é memória holográfica.
@@ -35,7 +35,7 @@ def simulate_epigenetic_memory_stability(generations=1000):
             noise_map = np.random.random((100, 100))
             
             # Limiar de estabilidade:
-            # Em TARDIS, bits correlacionados holograficamente são mais difíceis de flipar.
+            # Em TAMESIS, bits correlacionados holograficamente são mais difíceis de flipar.
             # Se o bit faz parte de um padrão Omega, ele resiste.
             
             for i in range(100):
@@ -72,8 +72,8 @@ def simulate_epigenetic_memory_stability(generations=1000):
     plt.legend()
     plt.grid(True, alpha=0.3)
     
-    outfile = "imgs/epigenetic_holography_results.png"
-    plt.savefig(outfile)
+    outfile = "../imgs/epigenetic_holography_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches="tight")
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

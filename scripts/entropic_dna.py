@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from Bio.Seq import Seq
 from collections import Counter
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 ALPHA = 0.47
 BOLTZMANN_K = 1.38e-23  # (J/K) - Simbólico aqui, usamos unidades naturais
@@ -81,7 +81,7 @@ def simulation_evolution(generations=100, sequences=None):
     history_entropy = []
     history_stability = []
     
-    print(f"Iniciando simulação TARDIS com {generations} gerações...")
+    print(f"Iniciando simulação TAMESIS com {generations} gerações...")
     print(f"Temperatura do sistema (Unruh): {TEMP_UNRUH:.2f}")
     
     current_pop = sequences
@@ -131,23 +131,48 @@ if __name__ == "__main__":
     # Rodar Simulação
     stab, ent = simulation_evolution(generations=200)
     
-    # Plotar Resultados
-    plt.figure(figsize=(12, 5))
+    # Plotar Resultados - Estilo Publicação Científica
+    plt.figure(figsize=(12, 5), dpi=300)
+    plt.rcParams['font.family'] = 'serif'
+    plt.rcParams['font.size'] = 10
+    plt.rcParams['axes.linewidth'] = 1.2
     
-    plt.subplot(1, 2, 1)
-    plt.plot(stab, color='purple', label='Ressonância Omega')
-    plt.title('Evolução da Estabilidade TARDIS')
-    plt.xlabel('Geração')
-    plt.ylabel('Ressonância (Estabilidade)')
-    plt.grid(True, alpha=0.3)
+    ax1 = plt.subplot(1, 2, 1)
+    ax1.plot(stab, color='#1f77b4', linewidth=2.5, label='Ω Resonance')
+    ax1.fill_between(range(len(stab)), np.array(stab) * 0.95, np.array(stab) * 1.05, 
+                     alpha=0.2, color='#1f77b4')
+    ax1.set_title('(a) Stability Evolution', fontsize=12, fontweight='bold', pad=10)
+    ax1.set_xlabel('Generation', fontsize=11)
+    ax1.set_ylabel('Ω Resonance (a.u.)', fontsize=11)
+    ax1.grid(True, alpha=0.3, linestyle='--', linewidth=0.5)
+    ax1.spines['top'].set_visible(False)
+    ax1.spines['right'].set_visible(False)
     
-    plt.subplot(1, 2, 2)
-    plt.plot(ent, color='cyan', label='Entropia de Shannon')
-    plt.title('Evolução da Entropia de Informação')
-    plt.xlabel('Geração')
-    plt.ylabel('Bits')
-    plt.grid(True, alpha=0.3)
+    # Linha de convergência
+    final_avg = np.mean(stab[-20:])
+    ax1.axhline(y=final_avg, color='gray', linestyle=':', linewidth=1.5, alpha=0.7)
+    ax1.text(20, final_avg*1.05, f'Convergence: {final_avg:.1f}', fontsize=9, style='italic')
+    
+    ax2 = plt.subplot(1, 2, 2)
+    ax2.plot(ent, color='#d62728', linewidth=2.5, label='Shannon Entropy')
+    ax2.fill_between(range(len(ent)), np.array(ent) * 0.95, np.array(ent) * 1.05, 
+                     alpha=0.2, color='#d62728')
+    ax2.set_title('(b) Entropic Optimization', fontsize=12, fontweight='bold', pad=10)
+    ax2.set_xlabel('Generation', fontsize=11)
+    ax2.set_ylabel('Shannon Entropy (bits)', fontsize=11)
+    ax2.grid(True, alpha=0.3, linestyle='--', linewidth=0.5)
+    ax2.spines['top'].set_visible(False)
+    ax2.spines['right'].set_visible(False)
+    
+    # Anotação de seleção
+    mid_point = len(ent) // 2
+    ax2.annotate('Selection pressure', xy=(mid_point, ent[mid_point]), 
+                xytext=(mid_point+30, ent[mid_point]+0.15),
+                arrowprops=dict(arrowstyle='->', color='black', lw=1),
+                fontsize=9)
     
     plt.tight_layout()
-    plt.savefig('tardis_evolution_plot.png')
-    print("Simulação concluída. Gráfico salvo como 'tardis_evolution_plot.png'.")
+    plt.savefig('../imgs/tardis_evolution_plot.png', dpi=300, bbox_inches='tight')
+    print("Simulação concluída. Gráfico salvo como '../imgs/tardis_evolution_plot.png'.")
+    plt.close()
+

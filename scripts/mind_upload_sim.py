@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 # Hipótese: Mind Upload não é copiar bits, é transportar topologia.
 # O substrato de destino deve ter "Impedância Entrópica" compatível.
@@ -41,7 +41,7 @@ def simulate_upload_process(steps=100):
         
         # Fator de Resistência do Material
         # Material Comum (Silício): Alta resistência entrópica (perda de dados)
-        # Material Omega (Cristal TARDIS): Ressonância perfeita
+        # Material Omega (Cristal TAMESIS): Ressonância perfeita
         
         material_resistance = 0.0 if t > 50 else 0.5 # t>50 simula troca para cristal Omega
         
@@ -74,8 +74,8 @@ def simulate_upload_process(steps=100):
     plt.annotate('Upload Bem-Sucedido', xy=(90, 90), xytext=(70, 80),
                  arrowprops=dict(facecolor='blue', shrink=0.05))
 
-    outfile = "imgs/mind_upload_results.png"
-    plt.savefig(outfile)
+    outfile = "../imgs/mind_upload_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches="tight")
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

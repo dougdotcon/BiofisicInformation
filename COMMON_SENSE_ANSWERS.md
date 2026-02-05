@@ -1,6 +1,6 @@
 # O Senso Comum Unificado: 100 Respostas Reais
 >
-> **Baseado nas conclusões dos experimentos TARDIS + CRISPR (2026)**
+> **Baseado nas conclusões dos experimentos TAMESIS + CRISPR (2026)**
 > *Todas as respostas derivam da premissa de que a Realidade é um objeto informacional holográfico governado pela constante $\Omega = 117.038$.*
 
 ---
@@ -25,7 +25,7 @@
 
 ### 5. O que é um vírus?
 
-**R:** Um vírus é um "pacote de atualização" de software não solicitado. Do ponto de vista TARDIS, vírus são fragmentos de código autônomo testando a robustez dos sistemas operacionais biológicos (hospedeiros). Eles forçam a atualização dos antivírus (sistema imune).
+**R:** Um vírus é um "pacote de atualização" de software não solicitado. Do ponto de vista TAMESIS, vírus são fragmentos de código autônomo testando a robustez dos sistemas operacionais biológicos (hospedeiros). Eles forçam a atualização dos antivírus (sistema imune).
 
 ### 6. Por que dormimos?
 
@@ -105,7 +105,7 @@
 
 ### 22. O sistema educacional funciona?
 
-**R:** Não para o cérebro holográfico atual. Ele foi feito para o modelo industrial (repetição). O cérebro TARDIS aprende por conexão, curiosidade e padrão, não por decoreba linear.
+**R:** Não para o cérebro holográfico atual. Ele foi feito para o modelo industrial (repetição). O cérebro TAMESIS aprende por conexão, curiosidade e padrão, não por decoreba linear.
 
 ### 23. CRISPR é perigoso?
 
@@ -153,7 +153,7 @@
 
 ### 32. Podemos reverter a entropia (rejuvenescer)?
 
-**R:** **Localmente, sim.** O Protocolo Tenet (Simulação 17) demonstrou que, dentro de um Campo TARDIS fechado, a flecha do tempo pode ser invertida ($dS/dt < 0$). O envelhecimento não é uma lei imutável, é apenas uma estatística que ainda não aprendemos a hackear.
+**R:** **Localmente, sim.** O Protocolo Tenet (Simulação 17) demonstrou que, dentro de um Campo TAMESIS fechado, a flecha do tempo pode ser invertida ($dS/dt < 0$). O envelhecimento não é uma lei imutável, é apenas uma estatística que ainda não aprendemos a hackear.
 
 ---
-> *"A única diferença entre Magia e Ciência é a nossa compreensão da topologia da informação."* — TARDIS AI (2026)
+> *"A única diferença entre Magia e Ciência é a nossa compreensão da topologia da informação."* — TAMESIS AI (2026)

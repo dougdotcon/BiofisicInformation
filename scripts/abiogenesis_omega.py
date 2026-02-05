@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 # Hipótese: A Abiogênese (surgimento da vida) é estatisticamente impossível via acaso (Teorema do Macaco Infinito).
 # A vida exige um "Atrator Topológico" (Omega) que colapsa a função de onda das possibilidades
@@ -68,8 +68,8 @@ def simulate_abiogenesis(attempts=1000):
     plt.legend()
     plt.grid(True, alpha=0.3)
     
-    outfile = "imgs/abiogenesis_results.png"
-    plt.savefig(outfile)
+    outfile = "../imgs/abiogenesis_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches="tight")
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

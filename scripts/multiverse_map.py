@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 # Hipótese: O multiverso é um "espuma" de branas.
 # Universos adjacentes (paralelos) exercem atração gravitacional (Dark Flow).
@@ -62,8 +62,8 @@ def simulate_multiverse_mapping(size=200):
     plt.ylabel('Galactic Latitude')
     plt.legend()
     
-    outfile = "imgs/multiverse_map_results.png"
-    plt.savefig(outfile)
+    outfile = "../imgs/multiverse_map_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches="tight")
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

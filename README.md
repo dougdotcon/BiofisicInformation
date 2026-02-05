@@ -24,7 +24,7 @@ Investigamos se a estabilidade genética e a eficácia evolutiva correlacionam-s
 
 **Resultado:** A simulação de 200 gerações indica que, sob pressão seletiva, genomas tendem a convergir para estados de "baixa entropia informacional", correlacionando estabilidade termodinâmica com padrões repetitivos não-aleatórios.
 
-![Entropic DNA Evolution](imgs/tardis_evolution_plot.png)
+![Entropic DNA Evolution](imgs/TAMESIS_evolution_plot.png)
 
 ### 2. Estabilidade Genômica e Radiação
 
@@ -104,7 +104,7 @@ Investigamos se a estabilidade genética e a eficácia evolutiva correlacionam-s
 
 **Resultado:** Sistemas de defesa baseados em reconhecimento de padrões fractais conseguem neutralizar cargas virais complexas de forma mais eficaz que defesas lineares, agindo como filtros de alta dimensão.
 
-![Viral Shield](imgs/viral_tardis_results.png)
+![Viral Shield](imgs/viral_TAMESIS_results.png)
 
 ### 12. Simulação de Abiogênese
 

@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 # Hipótese: Enzimas como Cas9 são "máquinas de Maxwell" que processam informação.
 # A eficiência catalítica depende da topologia da rede de resíduos (aminoácidos).
@@ -64,7 +64,7 @@ def optimize_cas9_topology(generations=50):
         
         # Seleção: Critério Omega
         # A natureza busca MAXIMIZAR eficiência e MINIMIZAR entropia (Free Energy Minimization)
-        # TARDIS: Otimização próxima a criticalidade Omega? 
+        # TAMESIS: Otimização próxima a criticalidade Omega? 
         # Vamos assumir critério simples: E = Efficiency - Entropy
         
         eff_orig, ent_orig = calculate_information_flow(G)
@@ -87,25 +87,54 @@ def optimize_cas9_topology(generations=50):
                 history_eff.append(eff_orig)
                 history_ent.append(ent_orig)
                 
-    # Plot
-    plt.figure(figsize=(12, 5))
+    # Plot - Estilo Publicação Científica
+    plt.figure(figsize=(12, 5), dpi=300)
+    plt.rcParams['font.family'] = 'serif'
+    plt.rcParams['font.size'] = 11
+    plt.rcParams['axes.linewidth'] = 1.2
     
-    plt.subplot(1, 2, 1)
-    plt.plot(history_eff, 'b-')
-    plt.title('Evolução da Eficiência Catalítica (Informacional)')
-    plt.xlabel('Iteração (Mutação)')
-    plt.ylabel('Eficiência Global da Rede')
-    plt.grid(True, alpha=0.3)
+    # Subplot 1: Eficiência
+    ax1 = plt.subplot(1, 2, 1)
+    ax1.plot(history_eff, color='#1f77b4', linewidth=2.5, label='Network Efficiency')
+    ax1.fill_between(range(len(history_eff)), history_eff, 
+                    alpha=0.3, color='#1f77b4')
+    ax1.set_title('(a) Catalytic Efficiency Evolution', 
+                 fontsize=12, fontweight='bold', pad=10)
+    ax1.set_xlabel('Optimization Iteration', fontsize=11)
+    ax1.set_ylabel('Global Information Flow', fontsize=11)
+    ax1.grid(True, alpha=0.3, linestyle='--', linewidth=0.5)
+    ax1.spines['top'].set_visible(False)
+    ax1.spines['right'].set_visible(False)
     
-    plt.subplot(1, 2, 2)
-    plt.plot(history_ent, 'r-')
-    plt.title('Minimização da Entropia de Von Neumann')
-    plt.xlabel('Iteração')
-    plt.ylabel('Entropia Espectral')
-    plt.grid(True, alpha=0.3)
+    # Região de convergência
+    conv_start = len(history_eff) * 2 // 3
+    ax1.axvspan(conv_start, len(history_eff), alpha=0.1, color='green')
+    ax1.text(conv_start + 3, min(history_eff) + 0.01, 'Convergence', 
+            fontsize=9, style='italic', color='darkgreen')
     
-    outfile = "imgs/cas9_optimization_results.png"
-    plt.savefig(outfile)
+    # Subplot 2: Entropia
+    ax2 = plt.subplot(1, 2, 2)
+    ax2.plot(history_ent, color='#d62728', linewidth=2.5, label='Von Neumann Entropy')
+    ax2.fill_between(range(len(history_ent)), history_ent, 
+                    alpha=0.3, color='#d62728')
+    ax2.set_title('(b) Entropy Minimization', 
+                 fontsize=12, fontweight='bold', pad=10)
+    ax2.set_xlabel('Optimization Iteration', fontsize=11)
+    ax2.set_ylabel('Spectral Entropy', fontsize=11)
+    ax2.grid(True, alpha=0.3, linestyle='--', linewidth=0.5)
+    ax2.spines['top'].set_visible(False)
+    ax2.spines['right'].set_visible(False)
+    
+    # Linha de tendência
+    z = np.polyfit(range(len(history_ent)), history_ent, 2)
+    p = np.poly1d(z)
+    ax2.plot(range(len(history_ent)), p(range(len(history_ent))), 
+            "--", color='black', linewidth=1.5, alpha=0.6, label='Trend')
+    ax2.legend(fontsize=9, loc='upper right', frameon=True)
+    
+    plt.tight_layout()
+    outfile = "../imgs/cas9_optimization_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches='tight')
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

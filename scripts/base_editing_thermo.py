@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 # Hipótese: Base Editing (C->T) é uma transição de tunelamento quântico.
 # Ao contrário do Cas9 (que rasga a topologia -> DSB), o BE apenas rotaciona a informação.
@@ -69,8 +69,8 @@ def simulate_editing_thermodynamics():
     fig.tight_layout()  
     plt.grid(True, alpha=0.3)
     
-    outfile = "imgs/base_editing_thermo_results.png"
-    plt.savefig(outfile)
+    outfile = "../imgs/base_editing_thermo_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches="tight")
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

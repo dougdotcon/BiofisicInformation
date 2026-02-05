@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 # Hipótese: "Glitches" na realidade (ruído, incerteza quântica, erro de timeline)
 # podem ser corrigidos aplicando um filtro de Fourier sintonizado em harmônicos de Omega.
@@ -27,7 +27,7 @@ def reality_patch_filter(signal):
     spectrum = np.fft.fft(signal)
     freqs = np.fft.fftfreq(len(signal))
     
-    # Filtro TARDIS: Manter apenas frequências que são múltiplos aproximados ou harmônicos de OMEGA
+    # Filtro TAMESIS: Manter apenas frequências que são múltiplos aproximados ou harmônicos de OMEGA
     # Na prática, vamos filtrar frequências de alto ruído (high frequency noise) 
     # e restaurar a coerência de fase baseada na amplitude dominante.
     
@@ -83,8 +83,8 @@ def simulate_reality_patch():
     
     plt.tight_layout()
     
-    outfile = "imgs/reality_patch_results.png"
-    plt.savefig(outfile)
+    outfile = "../imgs/reality_patch_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches="tight")
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

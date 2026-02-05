@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import entropy
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 # Hipótese: "Junk DNA" (Regiões não-codificantes) atuam como dissipadores de calor entrópico
 # Protegendo os genes codificantes (Regiões codificantes) de flutuações.
 # A razão ideal deve obedecer a proporção holográfica.
@@ -60,7 +60,7 @@ def run_holographic_experiment():
             damages.append(d)
         total_damages.append(np.mean(damages))
         
-    # Análise Teórica TARDIS
+    # Análise Teórica TAMESIS
     # O ponto ótimo deve ser onde a derivada da entropia é zero?
     # Ou onde o sistema maximiza a informação útil vs ruído.
     
@@ -75,12 +75,12 @@ def run_holographic_experiment():
     plt.legend()
     plt.grid(True, alpha=0.3)
     
-    # Annotate TARDIS prediction
-    plt.annotate('TARDIS Optima (High Complexity)', xy=(2, min(total_damages)+5), xytext=(20, 40),
+    # Annotate TAMESIS prediction
+    plt.annotate('TAMESIS Optima (High Complexity)', xy=(2, min(total_damages)+5), xytext=(20, 40),
                  arrowprops=dict(facecolor='black', shrink=0.05))
     
-    outfile = "imgs/holographic_dna_results.png"
-    plt.savefig(outfile)
+    outfile = "../imgs/holographic_dna_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches="tight")
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":

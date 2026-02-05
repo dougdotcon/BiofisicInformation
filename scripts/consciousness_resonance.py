@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# --- CONSTANTES TARDIS ---
+# --- CONSTANTES TAMESIS ---
 OMEGA = 117.038
 # Hipótese: "Consciência" é um fenômeno de ressonância acoplada entre 
 # a rede microtubular (cérebro) e a rede genômica (DNA).
@@ -47,23 +47,56 @@ def simulate_consciousness_resonance(time_steps=200):
         order_param = np.abs(np.mean(np.exp(1j * (phases_neural - phases_genetic))))
         coherence_history.append(order_param)
         
-    # Plot
-    plt.figure(figsize=(10, 6))
-    plt.plot(coherence_history, 'purple', linewidth=2)
-    plt.axvline(x=100, color='gold', linestyle='--', label='Ativação Omega (t=100)')
+    # Plot - Estilo Publicação Científica
+    plt.figure(figsize=(11, 6), dpi=300)
+    plt.rcParams['font.family'] = 'serif'
+    plt.rcParams['font.size'] = 11
+    plt.rcParams['axes.linewidth'] = 1.2
     
-    plt.title('Neural-Genomic Resonance: The Consciousness Interface')
-    plt.xlabel('Tempo (ms)')
-    plt.ylabel('Coerência de Fase (Sincronicidade)')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
+    ax = plt.gca()
+    time_array = np.arange(len(coherence_history))
     
-    # Annotate
-    plt.text(20, 0.2, 'Estado de Vigília (Baixo Acoplamento)', fontsize=10)
-    plt.text(110, 0.8, 'Estado Omega (Alta Consciência)', fontsize=10, color='purple', fontweight='bold')
+    # Plot com gradiente de cor
+    for i in range(len(coherence_history)-1):
+        color = '#9467bd' if i < 100 else '#d62728'
+        alpha = 0.7 if i < 100 else 0.9
+        plt.plot(time_array[i:i+2], coherence_history[i:i+2], 
+                color=color, linewidth=3, alpha=alpha)
     
-    outfile = "imgs/consciousness_resonance_results.png"
-    plt.savefig(outfile)
+    # Linha de transição
+    plt.axvline(x=100, color='#ff7f0e', linestyle='--', linewidth=2.5, 
+               label='Coupling Transition ($K_{\Omega}$ activation)', alpha=0.8)
+    
+    # Regiões sombreadas
+    plt.axvspan(0, 100, alpha=0.15, color='blue', label='Normal State')
+    plt.axvspan(100, 200, alpha=0.15, color='red', label='Resonant State')
+    
+    plt.title('Neural-Genomic Phase Synchronization Dynamics', 
+             fontsize=13, fontweight='bold', pad=15)
+    plt.xlabel('Time (arbitrary units)', fontsize=12)
+    plt.ylabel('Phase Coherence (Order Parameter $r$)', fontsize=12)
+    plt.legend(frameon=True, shadow=True, fontsize=10, loc='upper left')
+    plt.grid(True, alpha=0.3, linestyle='--', linewidth=0.5)
+    
+    # Anotações melhoradas
+    plt.annotate('Low coupling\\n($K = 0.5$)', xy=(50, coherence_history[50]), 
+                xytext=(30, 0.35), fontsize=10,
+                bbox=dict(boxstyle='round,pad=0.5', facecolor='lightblue', alpha=0.7),
+                arrowprops=dict(arrowstyle='->', lw=1.5, color='black'))
+    
+    plt.annotate('High coupling\\n($K = \\phi \\approx 1.618$)', 
+                xy=(150, coherence_history[150]), 
+                xytext=(140, 0.65), fontsize=10,
+                bbox=dict(boxstyle='round,pad=0.5', facecolor='lightcoral', alpha=0.7),
+                arrowprops=dict(arrowstyle='->', lw=1.5, color='black'))
+    
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.set_ylim(0, 1.05)
+    
+    plt.tight_layout()
+    outfile = "../imgs/consciousness_resonance_results.png"
+    plt.savefig(outfile, dpi=300, bbox_inches='tight')
     print(f"Concluído. Gráfico salvo em {outfile}")
 
 if __name__ == "__main__":
